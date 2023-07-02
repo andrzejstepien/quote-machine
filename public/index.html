@@ -43,5 +43,14 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script>
+    const documentHeight = () => {
+      const doc = document.documentElement
+      let vh = window.innerHeight * 0.01;
+      doc.style.setProperty('--vh', `${vh}px`)
+     }
+     window.addEventListener('resize', documentHeight)
+     documentHeight()
+     </script>
   </body>
 </html>

@@ -58,26 +58,36 @@ function App() {
 
 
   return (
-    <div className="App" style={{backgroundColor: currentBgColor}}>
+    <>
+    <div id="welcome" className="flex-container" style={{backgroundColor: currentBgColor}}>
+        <div className='quote-box'>
+        <blockquote>Welcome to the quote machine!</blockquote>
+        <figcaption>Andrzej Stepien</figcaption>
+        <a className="clickable" href="#app">
+          BEGIN
+        </a>
+        </div>
+    </div>
+    <div className="App flex-container" id="app" style={{backgroundColor: currentBgColor}}>
       <header className="App-header">
         <h1>Quote Machine</h1>
-      </header>
-      
-      <div id="quote-box" >
+      </header> 
+      <div id="quote-box" className='quote-box'>
         <blockquote id="text">
           {currentQuote.text}
         </blockquote>
         <figcaption id="author">
           {currentQuote.author}
         </figcaption>
-        </div>
-        <div id="clickables-container">
+        
+        
         <button id="new-quote" className="clickable" onClick={handleClick}>NEW</button>
         <a id="tweet-quote" className="clickable"  href={"https://twitter.com/intent/tweet?"+params}>TWEET</a>
         </div>
       
 
     </div>
+    </>
   );
 }
 

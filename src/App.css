@@ -14,6 +14,13 @@ a{
   text-decoration: none;
   
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+        scroll-behavior: smooth;
+  }
+}
+
 a:hover{
   text-align: none;
   transform: scale(110%);
@@ -65,20 +72,21 @@ figcaption{
   margin: 1em;
   color:white;
   cursor: pointer;
+  display:inline-flex;
+  align-self:center;
 }
 
-#quote-box{
+.quote-box{
   width:min(90%,800px); 
   margin:auto;
 }
 
-
-.App{
-  text-align: center;
-  height:100vh;
+.flex-container{
   display:flex;
   flex-direction: column;
   align-content: center;
   justify-content: flex-end;
+  text-align: center;
+  
+  height: calc(var(--vh, 1vh) * 100);
 }
-
