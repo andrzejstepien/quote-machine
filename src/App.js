@@ -62,7 +62,7 @@ function App() {
       <header className="App-header">
         <h1>Quote Machine</h1>
       </header>
-
+      
       <div id="quote-box" >
         <blockquote id="text">
           {currentQuote.text}
@@ -70,9 +70,12 @@ function App() {
         <figcaption id="author">
           {currentQuote.author}
         </figcaption>
-        <button id="new-quote" class="clickable" onClick={handleClick}>NEW</button>
-        <a id="tweet-quote" class="clickable"  href={"https://twitter.com/intent/tweet?"+params}>TWEET</a>
-      </div>
+        </div>
+        <div id="clickables-container">
+        <button id="new-quote" className="clickable" onClick={handleClick}>NEW</button>
+        <a id="tweet-quote" className="clickable"  href={"https://twitter.com/intent/tweet?"+params}>TWEET</a>
+        </div>
+      
 
     </div>
   );

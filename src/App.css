@@ -42,7 +42,7 @@ h1{
 }
 blockquote{
   font-family: var(--quote-font-family);
-  font-size: clamp(4rem, 5vw, 5rem); 
+  font-size: clamp(3rem, 5vw, 4.5rem); 
   text-shadow:0.1em 0.1em 2em var(--translucent-white); 
 }
 blockquote::before{
@@ -58,7 +58,7 @@ figcaption{
 }
 .clickable{
   font-family: var(--quote-font-family);
-  font-size: clamp(3rem, 5vw, 5rem); 
+  font-size: clamp(3.1rem, 5vw, 5rem); 
   background-color: rgba(255,255,255,0.3);
   border-radius: 0.3em;
   padding: 0.3em;
@@ -73,21 +73,12 @@ figcaption{
 }
 
 
-.App {
+.App{
   text-align: center;
   height:100vh;
+  display:flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-end;
 }
-
-
-
-
-
-.App-header {
-
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 
