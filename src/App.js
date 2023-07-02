@@ -31,7 +31,7 @@ function App() {
 
   const bgColors = [
     "#37306B",
-    "366347F",
+    "#66347F",
     "#9E4784",
     "#D27685",
     "#19376D",
@@ -48,8 +48,12 @@ function App() {
   function handleClick(){
     setCurrentQuote(getRandomArrayElement(quotes))
     setCurrentBgColor(getRandomArrayElement(bgColors))
+    console.log("current bgcolor"+currentBgColor)
   }
-
+  const params = new URLSearchParams({
+    text:currentQuote.text+" || "+currentQuote.author
+  }).toString()
+  console.log(params)
 
 
 
@@ -66,8 +70,8 @@ function App() {
         <figcaption id="author">
           {currentQuote.author}
         </figcaption>
-        <a id="new-quote" onClick={handleClick}>NEW</a>
-        <a id="tweet-quote">TWEET</a>
+        <button id="new-quote" class="clickable" onClick={handleClick}>NEW</button>
+        <a id="tweet-quote" class="clickable"  href={"https://twitter.com/intent/tweet?"+params}>TWEET</a>
       </div>
 
     </div>
