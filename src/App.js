@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 
@@ -26,32 +25,48 @@ function App() {
     },
     {
       text:"In a gentle way, you can shake the world.",
-      author:"Gandh"
+      author:"Gandhi"
     }
   ]
-  const [currentQuote, setCurrentQuote] = useState(randomQuote())
 
-  function randomQuote(){
-    return quotes[Math.floor(Math.random()*(quotes.length-1))]
+  const bgColors = [
+    "#37306B",
+    "366347F",
+    "#9E4784",
+    "#D27685",
+    "#19376D",
+    "#576CBC",
+    "#A5D7E8"
+  ]
+  const [currentQuote, setCurrentQuote] = useState(getRandomArrayElement(quotes))
+  const [currentBgColor, setCurrentBgColor] = useState(getRandomArrayElement(bgColors))
+  console.log(currentBgColor)
+  function getRandomArrayElement(array){
+    return array[Math.floor(Math.random()*(array.length-1))]
   }
  
+  function handleClick(){
+    setCurrentQuote(getRandomArrayElement(quotes))
+    setCurrentBgColor(getRandomArrayElement(bgColors))
+  }
+
 
 
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: currentBgColor}}>
       <header className="App-header">
         <h1>Quote Machine</h1>
       </header>
 
-      <div id="quote-box">
+      <div id="quote-box" >
         <blockquote id="text">
           {currentQuote.text}
         </blockquote>
         <figcaption id="author">
           {currentQuote.author}
         </figcaption>
-        <a id="new-quote" onClick={() => setCurrentQuote(randomQuote())}>NEW</a>
+        <a id="new-quote" onClick={handleClick}>NEW</a>
         <a id="tweet-quote">TWEET</a>
       </div>
 
