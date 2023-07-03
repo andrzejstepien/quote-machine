@@ -40,20 +40,27 @@ function App() {
   ]
   const [currentQuote, setCurrentQuote] = useState(getRandomArrayElement(quotes))
   const [currentBgColor, setCurrentBgColor] = useState(getRandomArrayElement(bgColors))
-  console.log(currentBgColor)
+
+  
   function getRandomArrayElement(array){
     return array[Math.floor(Math.random()*(array.length-1))]
   }
+  function getDifferentArrayElement(array,currentElement){
+    let newElement = currentElement
+    while(JSON.stringify(newElement)===JSON.stringify(currentElement)){
+      newElement = getRandomArrayElement(array)
+    }
+    return newElement
+  }
  
   function handleClick(){
-    setCurrentQuote(getRandomArrayElement(quotes))
-    setCurrentBgColor(getRandomArrayElement(bgColors))
-    console.log("current bgcolor"+currentBgColor)
+    setCurrentQuote(getDifferentArrayElement(quotes,currentQuote))
+    setCurrentBgColor(getDifferentArrayElement(bgColors,currentBgColor))
   }
   const params = new URLSearchParams({
     text:currentQuote.text+" || "+currentQuote.author
   }).toString()
-  console.log(params)
+
 
 
 
@@ -62,7 +69,7 @@ function App() {
     <div id="welcome" className="flex-container" style={{backgroundColor: currentBgColor}}>
         <div className='quote-box'>
         <blockquote>Welcome to the quote machine!</blockquote>
-        <figcaption>Andrzej Stepien</figcaption>
+        
         <a className="clickable" href="#app">
           BEGIN
         </a>
@@ -74,7 +81,9 @@ function App() {
       </header> 
       <div id="quote-box" className='quote-box'>
         <blockquote id="text">
+          <span className='quote'>
           {currentQuote.text}
+          </span>
         </blockquote>
         <figcaption id="author">
           {currentQuote.author}
